@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IABox.Views.Enterprises.EnterpriseSelect" Background="#ffffff" Loaded="ContentPage_Loaded">
+    <Frame Background="#ffffff" BorderColor="#ccc">
+        
+        <VerticalStackLayout  
+            Spacing="30"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label Text="Seleccione la empresa"/>
+            <ListView x:Name="lstEnterprises" ItemSelected="selectEnterprise_Click" />
+            <Button Grid.Row="3" x:Name="btnSelecEnterprise" VerticalOptions="End" Margin="0,30,0,0" Text="Aceptar" HeightRequest="50" 
+                Clicked="EnterpriseSelected_Clicked" WidthRequest="240" Background="#e76010" TextColor="#ffffff"/>
+
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IABox.Views.MenuNavigation.FlyoutMenuPage"
+             xmlns:pages="clr-namespace:IABox.Views.MenuNavigation"
+             xmlns:local="clr-namespace:IABox.Views.MenuNavigation"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             Padding="0" BackgroundColor="#15377f" Loaded="loadWindow" 
+             Title="FlyoutMenuPage">
+    
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                Spacing="10" Margin="10,20" >
+
+        <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5" >
+            <Image Aspect="AspectFit" Source="IABoxImage.jpg"
+               HeightRequest="50" WidthRequest="50"
+               VerticalOptions="Center" HorizontalOptions="Start" />
+
+            <Label 
+               FontSize="Large" TextColor="#ffffff"
+               FontAttributes="Bold" VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="Bienvenido"/>
+                            <Span x:Name="usuario"/>
+                            <Span x:Name="empresa"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </HorizontalStackLayout>
+
+        <BoxView HeightRequest="1" BackgroundColor="White"/>
+
+        <CollectionView x:Name="collectionViewFlyout"
+                    x:FieldModifier="public"
+                    SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="5,10" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding MenuIcon}" />
+                        <Label Grid.Column="1"
+                           Margin="20,0"
+                           Text="{Binding Title}"
+                           FontSize="20" TextColor="#ffffff"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <BoxView HeightRequest="1" BackgroundColor="#ffffff"/>
+        
+        <ImageButton Source="https://cdn-icons-png.flaticon.com/128/10830/10830351.png" HorizontalOptions="Start" Clicked="CloseSesion_Clicked" HeightRequest="50"/>
+       
+
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Label Text="Janus Automation @2023"
+               TextColor="#ffffff"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+            <Label Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+               TextColor="#ffffff"
+               HorizontalOptions="Center" />
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

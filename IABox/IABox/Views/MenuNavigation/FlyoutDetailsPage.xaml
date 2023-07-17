@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IABox.Views.MenuNavigation.FlyoutDetailsPage"
+             xmlns:local="clr-namespace:IABox.Views.MenuNavigation"
+             Title="Inicio" BackgroundColor="#15377f" Background="#ffffff">
+    <StackLayout>
+        <Label
+            Text="Inicio de page"
+            TextColor="#2a2a2a" FontAttributes="Bold" FontSize="Large"
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="CenterAndExpand" />
+    </StackLayout>
+</ContentPage>
