@@ -1,3 +1,5 @@
+using Api.Entity;
+
 namespace IABox.Views.MenuNavigation
 {
 

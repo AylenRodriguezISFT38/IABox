@@ -1,4 +1,5 @@
-﻿using IABox.Views.MenuNavigation;
+﻿using IABox.Views.Enterprises;
+using IABox.Views.MenuNavigation;
 
 namespace IABox
 {
@@ -9,8 +10,18 @@ namespace IABox
 		{
 			InitializeComponent();
 
-			MainPage = new Login();
+			MainPage = new AppShell();
 
+			if (DeviceInfo.Platform == DevicePlatform.Android)
+			{
+				Environment.SetEnvironmentVariable("ipLocal", "http://10.0.2.2:45455");
+			}
+			else
+			{
+				Environment.SetEnvironmentVariable("ipLocal", "http://localhost:5001");
+			}
+
+			Environment.SetEnvironmentVariable("ipImagenes", "https://webaccess.iabox.com.ar");
 		}
 	}
 }

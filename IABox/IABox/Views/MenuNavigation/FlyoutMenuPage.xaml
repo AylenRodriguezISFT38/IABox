@@ -6,13 +6,16 @@
              xmlns:local="clr-namespace:IABox.Views.MenuNavigation"
              xmlns:system="clr-namespace:System;assembly=netstandard"
              Padding="0" BackgroundColor="#15377f" Loaded="loadWindow" 
-             Title="FlyoutMenuPage">
+             Title="FlyoutMenuPage" >
     
     <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                 Spacing="10" Margin="10,20" >
 
         <HorizontalStackLayout HorizontalOptions="FillAndExpand" Spacing="5" >
-            <Image Aspect="AspectFit" Source="IABoxImage.jpg"
+            <Image Aspect="AspectFit" Source="http://190.224.32.89/assets/logoIA.jpg"
+               HeightRequest="50" WidthRequest="50"
+               VerticalOptions="Center" HorizontalOptions="Start" />
+            <Image Aspect="AspectFit" x:Name="imgEmpresa"
                HeightRequest="50" WidthRequest="50"
                VerticalOptions="Center" HorizontalOptions="Start" />
 

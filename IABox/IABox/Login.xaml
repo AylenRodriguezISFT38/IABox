@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="IABox.Login"
-             Title="Login"
-             Background="#ffffff">
+             x:Class="IABox.Login">
 
-    <Frame Background="#ffffff" BorderColor="#ccc">
+
         
         <StackLayout 
             Spacing="30"
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Image Source="https://webaccess.iabox.com.ar/assets/logoIA.jpg"
+
+        <Image Source="https://webaccess.iabox.com.ar/assets/logoIA.jpg"
                    HeightRequest="60" 
                    HorizontalOptions="Center"/>
 
-            <Label VerticalOptions="Center" Text="Iniciar sesión" HorizontalTextAlignment="Center" TextColor="#2a2a2a" FontSize="30"/>
+        <Label VerticalOptions="Center" Text="Iniciar sesión" HorizontalTextAlignment="Center"  TextColor="#2a2a2a" FontSize="30" FontFamily="SegoeUI"/>
             
             <StackLayout VerticalOptions="Center" Spacing="15">
-                <Entry x:Name="username" HeightRequest="50" WidthRequest="250" Placeholder="Nombre de usuario" PlaceholderColor="#ccc" TextColor="#2a2a2a"/>
-                <Entry x:Name="password" HeightRequest="50" WidthRequest="250" Placeholder="Contraseña" PlaceholderColor="#ccc" IsPassword="True" TextColor="#2a2a2a"/>
+                <Entry x:Name="username" HeightRequest="50" FontFamily="SegoeUI" WidthRequest="250" Placeholder="Nombre de usuario" PlaceholderColor="#ccc" TextColor="#2a2a2a"/>
+                <Entry x:Name="password" HeightRequest="50" FontFamily="SegoeUI" WidthRequest="250" Placeholder="Contraseña" PlaceholderColor="#ccc" IsPassword="True" TextColor="#2a2a2a"/>
             </StackLayout>
 
-            <Button Grid.Row="3" x:Name="btnLogin" VerticalOptions="End" Margin="0,30,0,0" Text="Iniciar sesion" HeightRequest="50" Clicked="Button_Clicked" WidthRequest="240" Background="#e76010" TextColor="#ffffff"/>
+        <Button Grid.Row="3" x:Name="btnLogin" FontFamily="SegoeUI" VerticalOptions="End" Margin="0,30,0,0" Text="Iniciar sesion" HeightRequest="50" Clicked="Button_Clicked" WidthRequest="240" Background="#e76010" TextColor="#ffffff"/>
         </StackLayout>
-    </Frame>
+
 </ContentPage>

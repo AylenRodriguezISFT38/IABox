@@ -1,19 +1,62 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:IABox.Views.Enterprises"
+             Title="Seleccionar empresa"
              x:Class="IABox.Views.Enterprises.EnterpriseSelect" Background="#ffffff" Loaded="ContentPage_Loaded">
-    <Frame Background="#ffffff" BorderColor="#ccc">
-        
-        <VerticalStackLayout  
-            Spacing="30"
+
+    <VerticalStackLayout  Spacing="30"
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Label Text="Seleccione la empresa"/>
-            <ListView x:Name="lstEnterprises" ItemSelected="selectEnterprise_Click" />
-            <Button Grid.Row="3" x:Name="btnSelecEnterprise" VerticalOptions="End" Margin="0,30,0,0" Text="Aceptar" HeightRequest="50" 
-                Clicked="EnterpriseSelected_Clicked" WidthRequest="240" Background="#e76010" TextColor="#ffffff"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
 
-        </VerticalStackLayout>
-    </Frame>
+            <ListView Grid.Row="0" VerticalOptions="Center" ItemsSource="{Binding Empresa}"  Background="#fafafa" HorizontalOptions="Center" x:Name="enterprises" HeightRequest="400"  ItemSelected="selectedItem" >
+               
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Grid HorizontalOptions="Start" ColumnSpacing="30" Margin="5">
+                                <Grid.RowDefinitions >
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.RowSpan="2"
+                                       Source="{Binding Imagen}"
+                                       Aspect="Fill"
+                                       WidthRequest="100" />
+
+                                <Label Grid.Column="1"
+                                       Text="{Binding Descripcion}"
+                                       FontAttributes="Bold" 
+                                       FontSize="15"
+                                       HorizontalTextAlignment="Start"
+                                       TextColor="#2a2a2a"/>
+
+                                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       Text="Empresa"
+                                       HorizontalTextAlignment="Start"
+                                       FontAttributes="Italic"
+                                       VerticalOptions="End" 
+                                       TextColor="#c2c2c2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Grid.Row="1"  x:Name="btnEnterprise" VerticalOptions="End" Clicked="SendEnterprise_Click" Margin="0,30,0,0" Text="Seleccionar" IsEnabled="False" HeightRequest="50" WidthRequest="240" Background="#c2c2c2" TextColor="#ffffff"></Button>
+
+        </Grid>
+    </VerticalStackLayout>
 </ContentPage>

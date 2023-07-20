@@ -4,21 +4,22 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:IABox"
+    xmlns:view="clr-namespace:IABox.Views.Enterprises"
+    xmlns:views="clr-namespace:IABox.Views.MenuNavigation"
     Shell.FlyoutBehavior="Disabled">
 
+    <ShellContent ContentTemplate="{DataTemplate local:Login}" Route="Login"/>
+    
     <FlyoutItem>
-        <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:Login}"
-        Route="Login" />
+        <ShellContent ContentTemplate="{DataTemplate view:EnterpriseSelect}" Title="Seleccione empresa" Route="Login/Enterprise"/>
         
-        <Tab Route="FlyoutPage">
-            <ShellContent Route="FlyoutPage" Title="FlyoutPage"/>
-            <ShellContent Route="Inicio" Title="Inicio"/>
-            <ShellContent Route="Alarmas" Title="Alarmas"/>
-            <ShellContent Route="Configuraciones" Title="Configuraciones"/>
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:FlyoutSamplePage}" Route="Login/Enterprise/FlyoutSamplePage"/>
         </Tab>
+        
     </FlyoutItem>
+            
+      
   
-     
+  
 </Shell>

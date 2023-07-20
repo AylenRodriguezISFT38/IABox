@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace IABox.Models.DTO
 {
-    public partial class SessionDTO
+    public class SessionDTO
     {
         public string Token { get; set; }
         public DateTime Fechaexpiracion { get; set; }
 
         public UsuarioDTO Usuario { get; set; }
+
     }
+    public class PermissionModules
+    {
+        public string Url { get; set; }
+        public string Codigo { get; set; }
+        public List<long> IdEvent { get; set; }
+    }
+
 }

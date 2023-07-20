@@ -26,10 +26,10 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net7.0-android",
+          "net7.0-android33.0",
           "net7.0-ios",
           "net7.0-maccatalyst",
-          "net7.0-windows10.0.19041.0"
+          "net7.0-windows10.0.22621.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -38,7 +38,7 @@
         },
         "frameworks": {
           "net7.0-android33.0": {
-            "targetAlias": "net7.0-android",
+            "targetAlias": "net7.0-android33.0",
             "projectReferences": {}
           },
           "net7.0-ios16.1": {
@@ -49,8 +49,8 @@
             "targetAlias": "net7.0-maccatalyst",
             "projectReferences": {}
           },
-          "net7.0-windows10.0.19041": {
-            "targetAlias": "net7.0-windows10.0.19041.0",
+          "net7.0-windows10.0.22621": {
+            "targetAlias": "net7.0-windows10.0.22621.0",
             "projectReferences": {}
           }
         },
@@ -62,7 +62,7 @@
       },
       "frameworks": {
         "net7.0-android33.0": {
-          "targetAlias": "net7.0-android",
+          "targetAlias": "net7.0-android33.0",
           "dependencies": {
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -93,13 +93,17 @@
               "version": "[7.0.92, )",
               "autoReferenced": true
             },
+            "Microsoft.Windows.SDK.BuildTools": {
+              "target": "Package",
+              "version": "[10.0.22621.756, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "RestSharp": {
+            "Syncfusion.Maui.ListView": {
               "target": "Package",
-              "version": "[110.2.0, )"
+              "version": "[22.1.39, )"
             },
             "Xamarin.Android.Glide": {
               "target": "Package",
@@ -219,13 +223,17 @@
               "version": "[7.0.92, )",
               "autoReferenced": true
             },
+            "Microsoft.Windows.SDK.BuildTools": {
+              "target": "Package",
+              "version": "[10.0.22621.756, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "RestSharp": {
+            "Syncfusion.Maui.ListView": {
               "target": "Package",
-              "version": "[110.2.0, )"
+              "version": "[22.1.39, )"
             }
           },
           "imports": [
@@ -290,13 +298,17 @@
               "version": "[7.0.92, )",
               "autoReferenced": true
             },
+            "Microsoft.Windows.SDK.BuildTools": {
+              "target": "Package",
+              "version": "[10.0.22621.756, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "RestSharp": {
+            "Syncfusion.Maui.ListView": {
               "target": "Package",
-              "version": "[110.2.0, )"
+              "version": "[22.1.39, )"
             }
           },
           "imports": [
@@ -330,8 +342,8 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         },
-        "net7.0-windows10.0.19041": {
-          "targetAlias": "net7.0-windows10.0.19041.0",
+        "net7.0-windows10.0.22621": {
+          "targetAlias": "net7.0-windows10.0.22621.0",
           "dependencies": {
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -367,6 +379,10 @@
               "version": "[7.0.92, )",
               "autoReferenced": true
             },
+            "Microsoft.Windows.SDK.BuildTools": {
+              "target": "Package",
+              "version": "[10.0.22621.756, )"
+            },
             "Microsoft.WindowsAppSDK": {
               "target": "Package",
               "version": "[1.2.221209.1, )",
@@ -376,9 +392,9 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "RestSharp": {
+            "Syncfusion.Maui.ListView": {
               "target": "Package",
-              "version": "[110.2.0, )"
+              "version": "[22.1.39, )"
             }
           },
           "imports": [
@@ -427,7 +443,7 @@
             },
             {
               "name": "Microsoft.Windows.SDK.NET.Ref",
-              "version": "[10.0.19041.28, 10.0.19041.28]"
+              "version": "[10.0.22621.28, 10.0.22621.28]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",

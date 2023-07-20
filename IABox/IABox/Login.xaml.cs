@@ -1,25 +1,34 @@
+using Api.Entity;
+//using CoreML;
 using IABox.Models.DTO;
 using IABox.Services;
 using IABox.Views.Enterprises;
 using IABox.Views.MenuNavigation;
-using RestSharp;
+using Newtonsoft.Json;
+//using PassKit;
+using System.Collections.Generic;
 //using Java.Net;
 //using Org.Apache.Http.Protocol;
 //using Java.Nio.Channels;
 using System.Net.Http.Json;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Web;
+using static System.Net.WebRequestMethods;
 //using AppClip;
 
-namespace IABox{
+namespace IABox
+{
 
     public partial class Login : ContentPage
     {
         #region Properties...
-        private JsonSerializerOptions _serializerOptions;
-        private string host = DeviceInfo.Platform == DevicePlatform.Android ? "http://10.0.2.2:5001" : "http://localhost:5001";
+        private string host = Environment.GetEnvironmentVariable("ipLocal");
         private LogService _logService;
+        public SessionDTO sessionInfo { get; private set; }
         #endregion
         public Login()
         {
@@ -27,96 +36,67 @@ namespace IABox{
             _logService = new LogService();
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            try
+            if (!string.IsNullOrEmpty(username.Text) || !string.IsNullOrEmpty(password.Text))
             {
                 string _url = host + "/Security/Login";
-
-                if (!string.IsNullOrEmpty(username.Text) || !string.IsNullOrEmpty(password.Text))
+                try
                 {
-                   var session = SendMsg(_url).Result;
-                    if (session.GetType().Name == "SessionDTO")
-                    {
-                        SecureStorage.Default.SetAsync("oauth_token", (session as SessionDTO).Token);
-                        SecureStorage.Default.SetAsync("oauth_expiration",(session as SessionDTO).Fechaexpiracion.ToString());
-                        SecureStorage.Default.SetAsync("userInformation", JsonSerializer.Serialize((session as SessionDTO).Usuario));
-                        Application.Current.MainPage = new EnterpriseSelect();
-                      
-                    }
-                    else 
-                    {
-                        DisplayAlert("Usuario incorrecto", "Complete el formulario", "Aceptar");
-                    }
-                }
-                else
-                {
-                    DisplayAlert("Campos vacios", "Complete el formulario", "Aceptar");
-                }
-            }
-            catch (Exception ex)
-            {
-                if (DeviceInfo.Platform != DevicePlatform.Android)
-                    _logService.Log(ex.Message);
-
-                DisplayAlert("Inicio fallido", "Intente nuevamente mas tarde", "Aceptar");
-            }
-        
-        }
-        private async Task<object> SendMsg()
-        {
-            try
-            {
-                using (var _clien = new RestClient(host))
-                {
-                    var request = new RestRequest("/Security/Login", Method.Post);
-
-                    _serializerOptions = new JsonSerializerOptions
-                    {
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                        WriteIndented = true,
-                    };
-
-                    string payload = JsonSerializer.Serialize<LoginDTO>(new LoginDTO { loginName = username.Text, pass = password.Text }, _serializerOptions);
-                    StringContent content = new StringContent(payload, Encoding.UTF8, "application/json");
-
-                    _clien.AddDefaultHeader("Accept", "application/json");
-                    _clien.AddDefaultHeader("Content-Type", "application/json");
-                    _clien.AddDefaultParameter("application/json; charset=utf-8", payload, ParameterType.RequestBody);
-                }
-                #region httpclient..
-                using (var _httpClient = new HttpClient())
-                {
-                    _serializerOptions = new JsonSerializerOptions
-                    {
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                        WriteIndented = true,
-                    };
-
-                    string payload = JsonSerializer.Serialize<LoginDTO>(new LoginDTO { loginName = username.Text, pass = password.Text}, _serializerOptions);
-                    StringContent content = new StringContent(payload, Encoding.UTF8, "application/json");
                     
-                    HttpResponseMessage response = await _httpClient.PostAsync(_url, content, CancellationToken.None);
-
-                    string _content = await response.Content.ReadAsStringAsync();
-
-                    if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+                    
+                    LoginDTO loginData = new LoginDTO
                     {
-                        return "Usuario u contraseña incorrecta";
-                    }
-                    else
+                        loginName = username.Text,
+                        pass = password.Text
+                    };
+
+                    string jsonBody = System.Text.Json.JsonSerializer.Serialize(loginData);
+
+                    using (HttpClient client = new HttpClient())
                     {
-                        return JsonSerializer.Deserialize<SessionDTO>(_content, _serializerOptions);
+                        StringContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync(_url, content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string responseContent = await response.Content.ReadAsStringAsync();
+
+                            if (string.IsNullOrEmpty(responseContent))
+                            {
+                                await DisplayAlert("Error", "Contraseña o usuario incorrecto", "Aceptar");
+                            }
+                            else
+                            {
+                                SessionDTO session = JsonConvert.DeserializeObject<SessionDTO>(responseContent);
+                                await SecureStorage.Default.SetAsync("auth_Token", session.Token);
+                                await SecureStorage.Default.SetAsync("auth_Expiration", session.Fechaexpiracion.ToString());
+
+                                Dictionary<string, object> data = new Dictionary<string, object>();
+                                data.Add("SessionData", session);
+
+
+                                await Shell.Current.GoToAsync("/Enterprise", true, data);
+
+                            }
+                        }
+                        else
+                        {
+                            await DisplayAlert("Error", $"Error en la solicitud: {response.StatusCode} - {response.ReasonPhrase}", "Aceptar");
+                        }
                     }
                 }
-                #endregion
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", $"Error en la solicitud: {ex.Message}", "Aceptar");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                return ("Error","Intentelo mas tarde","Aceptar");
-                
+                await DisplayAlert("Advertencia", "Los campos se encuentran vacios", "Aceptar");
             }
         }
+       
 
     }
 }

@@ -1,0 +1,93 @@
+is_global = true
+build_property.TargetFramework = net7.0-android33.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = true
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = IABox
+build_property.ProjectDir = C:\Users\aylen\source\repos\MAUI\IABox\IABox\
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Login.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Login.xaml
+build_metadata.AdditionalFiles.TargetPath = Login.xaml
+build_metadata.AdditionalFiles.RelativePath = Login.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Views/Enterprises/EnterpriseSelect.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Views.Enterprises.EnterpriseSelect.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Enterprises\EnterpriseSelect.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Enterprises\EnterpriseSelect.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Views/MenuNavigation/FlyoutDetailsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Views.MenuNavigation.FlyoutDetailsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MenuNavigation\FlyoutDetailsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MenuNavigation\FlyoutDetailsPage.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Views/MenuNavigation/FlyoutMenuPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Views.MenuNavigation.FlyoutMenuPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MenuNavigation\FlyoutMenuPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MenuNavigation\FlyoutMenuPage.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Views/MenuNavigation/FlyoutSamplePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Views.MenuNavigation.FlyoutSamplePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\MenuNavigation\FlyoutSamplePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\MenuNavigation\FlyoutSamplePage.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Views/Pages/Alarms.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Views.Pages.Alarms.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\Alarms.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\Alarms.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Views/Pages/Configs.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Views.Pages.Configs.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\Configs.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\Configs.xaml
+
+[C:/Users/aylen/source/repos/MAUI/IABox/IABox/Views/Pages/Index.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = IABox.Views.Pages.Index.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Pages\Index.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Pages\Index.xaml
